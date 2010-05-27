@@ -1,0 +1,4 @@
+<?php
+require_once(LIBPATH.'/Router.php');
+
+$url = $_SERVER['REQUEST_URI'];
