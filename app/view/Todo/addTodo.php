@@ -1,6 +1,6 @@
 <?php
 
-echo var_dump($test);
+echo var_dump($this->test);
     
  ?>
 

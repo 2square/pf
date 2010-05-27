@@ -18,16 +18,16 @@ class Router {
     private function callMethod($controllerName, $methodName) {
 
         require_once(CTRLPATH."/{$controllerName}.php");
-        $controllerName .= 'Controller';
-        $controller = new $controllerName();
+        $controllerClassName = $controllerName.'Controller';
+        $controller = new $controllerClassName();
         if(method_exists($controller, $methodName))
             $controller->$methodName();
+
+        require_once(LIBPATH."/Template.php");
+        $template = new Template($controller);
+        $template->render($controllerName, $methodName);
     }
 
-    private function loadView($controllerName, $methodName) {
-        require_once(VIEWPATH."/{$controllerName}/{$methodName}.php");
-    }
-    
     public function route($url) {
 
         $validUrl = $this->validateUrl($url);
@@ -40,8 +40,6 @@ class Router {
         array_shift($urlArray);
         
         $this->callMethod($controllerName, $methodName);
-        $this->loadView($controllerName, $methodName);
-        
     }
     
     function __get($name) {

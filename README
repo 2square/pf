@@ -1,0 +1,4 @@
+TODO LIST
+=========
+* Controller의 변수들을 가지고와서 View에 연결시켜야함
+* Model Controller View의 관계를 정리해주는 클래스 만들자.
