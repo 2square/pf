@@ -22,10 +22,11 @@ class Router {
         $controller = new $controllerClassName();
         if(method_exists($controller, $methodName))
             $controller->$methodName();
-
+        /*
         require_once(LIBPATH."/Template.php");
         $template = new Template($controller);
         $template->render($controllerName, $methodName);
+        */
     }
 
     public function route($url) {

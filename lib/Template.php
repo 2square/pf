@@ -7,15 +7,18 @@ class Template {
                 
         $this->controller = $controller;
 //        $objectVars = $controller;
-        echo var_dump($objectVars)."<br />";
+        $arr =  (array)$controller;
+        foreach ($arr as $name => $value) {
+            echo $name.' '.$value.'<br />';
+        }
+
+        /*
         foreach($objectVars as $name => $value) {
             $this->$name = $value;
         }
+        */
     }
 
-    public function render($controllerName, $methodName) {
-        require_once(VIEWPATH."/{$controllerName}/{$methodName}.php");
-    }
 /*
     function __get($name) {
         return $this->$name;
